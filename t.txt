@@ -1,0 +1,13 @@
+books {
+    id,
+    title,
+    pub,
+    author_id,
+}
+
+author {
+    id,
+    fio,
+    bio,
+    yaer
+}
