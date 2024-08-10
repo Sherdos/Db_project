@@ -1,6 +1,3 @@
-
-
-
 import psycopg2
 
 from models import Book
@@ -35,7 +32,16 @@ def get_book_by_id(cur, id):
     print(Book(*book))
 
 
-
+@conn_db
+def get_book_by_author_id(cur, author_id): 
+    cur.execute("SELECT * FROM books where author_id=%s",(author_id,)) 
+    books = cur.fetchall()
+    cur.execute('select * from authors where id =%s',(author_id,) )
+    author = cur.fetchone()
+    print(author)
+    for i in books:
+        book = Book(*i, author)
+        print(book)
 
 
 
